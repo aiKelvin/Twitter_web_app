@@ -1,0 +1,35 @@
+html{
+	 background: url(odd_wallpaper.jpg);
+}
+
+.center {
+	margin: auto;
+    width: 60%;
+    text-align: center;
+    padding: 10px;
+}
+
+.form {
+	text-align: center;
+	float:center;
+	
+	margin: 0px;
+
+}
+
+form{
+	text-align: center;
+	display:inline-block;
+}
+
+input{
+	border-radius: 5px;
+}
+
+h2{
+	color:#ffffcc;
+}
+
+h1{
+	color:#ffffcc;
+}

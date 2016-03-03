@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="signuppage.css">
+	</head>
+
+	<body>
+		<h1>Sign Up</h1>
+		<form enctype="multipart/form-data" action="signuppage.php" id="signupform" method="post">
+			<input type="text" name="user" placeholder="Username">
+			<input type="password" name="pass" placeholder="Password">
+			<input type="submit" value="Sign Up">	
+			
+			<p>Default Images:<select name="picturelist" form="signupform"></p>
+				<option value="anonmale">Male</option>
+				<option value="anonfemale">Female</option>
+				<option value="cat">Cat</option>
+				<option value="dog">Dog</option>
+			</select>
+			<input type="file" name="img" size="25">
+		</form>	
+	</body>
+</html>
+

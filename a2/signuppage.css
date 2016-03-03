@@ -1,0 +1,23 @@
+html{
+	 background: url(odd_wallpaper.jpg);
+}
+
+h1 {
+	color:#ffffcc;
+}
+
+p{
+	color:#ffffcc;
+}
+
+input{
+	border-radius: 5px;
+}
+
+select{
+	border-radius: 5px;
+}
+
+option{
+	border-radius: 5px;
+}

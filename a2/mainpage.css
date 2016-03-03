@@ -1,0 +1,47 @@
+
+#pub_wordclouds{
+	position:relative;
+	float:right;
+}
+
+#word_cloud_div{
+	height: 500px;
+	width: 700px;
+	font-color:#ffffcc;
+	
+}
+
+#word_cloud_div p{
+	margin: 0px;
+	font-color:#ffffcc;
+}
+
+#pub_title{
+	position:relative;
+	float:right;
+}
+
+html{
+	 background: url(odd_wallpaper.jpg);
+}
+
+h2{
+	color: #ffffcc;
+}
+
+h4{
+	color: #ffffcc;
+}
+
+button{
+	border-radius: 5px;
+	float:auto;
+}
+
+p{
+	color: #ffffcc;
+}
+
+img{
+	float:auto;
+}

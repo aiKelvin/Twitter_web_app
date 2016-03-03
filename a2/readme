@@ -1,0 +1,35 @@
+Link to the website
+https://cs.utm.utoronto.ca/~aksoyert/a2/landingpage.html
+
+Things that can be done:
+
+- Users can sign in
+- Users can sign up, which includes image uploading
+- Users can create word clouds (button)
+- Users can upload word clouds (button)
+- Users can sort word clouds by most recent word clouds (button)
+- Users can sort word clouds by most popular word clouds (button)
+- Users can view the most recent word clouds
+- Error handling in terms of not letting invalid logins, invalid signups, etc.
+- All the database stuff in terms of updating, inserting, querying, etc.
+- Can upload images and word clouds properly (database inserts; php psql stuff)
+- Any error that happens goes to the error page and outputs a message about the error (invalid login, too short password, etc)
+
+Things that cant be done:
+
+- Like other people's word clouds (there is a button but it doesnt do anything)
+
+Things that we believe are extra:
+
+- Dynamic error page that prints whatever error happened based on what error happened (so if invalid login, will tell user invalid login, etc.)
+- Looked into chmod for php to deal with image handling
+- Multiple default pictures, even a cute dog
+
+Schema file includes two users: ertan and kelvin
+Their passwords are hashed in the database using sha1
+Passwords are encrypted using the php sha1, so when a user logs in, the website gets their raw password and performs sha1 encryption on it and then validates it to the password in the database that is also encrypted using sha1
+Password for ertan is password
+Password for kelvin is testing
+For the wordcloud table, there are two word clouds right now, one with more likes than the other and one made before the other one
+You can test for sorting by likes and sorting by most recent
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="mainpage.css">
+</head>
+<body>	
+		
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			<script>
+				$(function cloudScramble() {
+  					$(".word_cloud_div p").each(function (i, elt) {
+    					$(elt).css({
+      						left: Math.random() * 150,
+     						top: Math.random() * 150
+    					});
+  					});
+				});
+
+				
+				function createWordCloud()
+				{
+					document.getElementById("test").innerHTML = "";
+					var fontsize;
+			
+					var xhttp;
+					xhttp = new XMLHttpRequest();
+	
+					xhttp.onreadystatechange = function() 
+					{
+						if (xhttp.readyState == 4 && xhttp.status == 200)
+						{
+							
+								for(var x = 0; x < xhttp.responseText.length; x++){
+								
+									var new_cloud = xhttp.responseText.split("|`````|`|");
+					
+								}
+								for(var y = 0; y < new_cloud.length; y++){
+									var split_new_cloud = new_cloud[y].split("`|`|||`");
+									if(split_new_cloud[0] != ""){									
+									
+										fontSize = split_new_cloud[1] * 5;
+										
+										if (fontSize > 50){
+											fontSize = 50;
+										}
+									
+										document.getElementById('test').innerHTML += "<p style=font-size:" + fontSize + "px;position:relative;" + "left:" + (Math.random() * 150) + "px;top:" 											+ (Math.random() * 150) + "px;>" + split_new_cloud[0] + "</p>";
+									}
+								}
+						}
+					};
+					xhttp.open('GET','mainpage.php?q=' + document.getElementById("bar").value, true);
+					xhttp.send();
+					
+					
+				}
+
+				function uploadWordCloud()
+				{
+					document.getElementById("pub_wordclouds").innerHTML = "";
+					
+					if (document.getElementById('test').innerHTML != "Current Word Cloud")
+					{
+						var xhttp;
+						xhttp = new XMLHttpRequest();
+					
+						xhttp.onreadystatechange = function()
+						{
+							if (xhttp.readyState == 4 && xhttp.status == 200)
+							{	
+								document.getElementById('pub_wordclouds').innerHTML += "<div name = word_cloud_div id = word_cloud_div>";
+								
+								for(var x = 0; x < xhttp.responseText.length; x++){
+								
+									var new_cloud = xhttp.responseText.split("|`````|`|");
+								}
+								for(var y = 0; y < new_cloud.length; y++){
+									var split_new_cloud = new_cloud[y].split("`|`|||`");
+									
+									var fontSize = split_new_cloud[1] * 5;
+									if (fontSize > 50){
+										fontSize = 50;
+									}
+									document.getElementById('pub_wordclouds').lastChild.innerHTML += "<p style=font-size:" + fontSize + "px;position:relative;" + "left:" + (Math.random() * 150) + "px;top:" + (Math.random() * 150) + "px;>" + split_new_cloud[0] + "</p>" + "<br>";
+									
+									
+								}
+								
+								
+							}
+						}
+				
+						xhttp.open('GET','uploadwordcloud.php?q=' + document.getElementById("test").innerHTML, true);
+						xhttp.send();
+					}
+				
+				}
+
+				function updateWordCloud()
+				{
+					document.getElementById("pub_wordclouds").innerHTML= "";
+					var xhttp;
+					xhttp = new XMLHttpRequest();
+
+					xhttp.onreadystatechange = function()
+					{
+						if (xhttp.readyState == 4 && xhttp.status == 200)
+						{
+						document.getElementById('pub_wordclouds').innerHTML += "<div name = word_cloud_div id = word_cloud_div>";
+						for(var x = 0; x < xhttp.responseText.length; x++){
+							var new_cloud = xhttp.responseText.split("|`````|`|");
+						}
+							for(var y = 0; y < new_cloud.length; y++){
+								var split_new_cloud = new_cloud[y].split("`|`|||`");
+								var fontSize = split_new_cloud[1] * 5;
+								if (fontSize > 50){
+									fontSize = 50;
+								}
+								document.getElementById('pub_wordclouds').lastChild.innerHTML += "<p style=font-size:" + fontSize + "px;position:relative;" + "left:" + (Math.random() * 150) + "px;top:" + (Math.random() * 150) + "px;>" + split_new_cloud[0] + "</p>";
+							}
+						
+							}
+					}
+					xhttp.open('GET','getlatestwordclouds.php?q=', true);
+					xhttp.send();
+
+				}
+				
+				function sortByLatest()
+				{
+					document.getElementById("pub_wordclouds").innerHTML= "";
+					var xhttp;
+					xhttp = new XMLHttpRequest();
+
+					xhttp.onreadystatechange = function()
+					{
+						if (xhttp.readyState == 4 && xhttp.status == 200)
+						{
+						document.getElementById('pub_wordclouds').innerHTML += "<div name = word_cloud_div id = word_cloud_div>";
+						for(var x = 0; x < xhttp.responseText.length; x++){
+							var new_cloud = xhttp.responseText.split("|`````|`|");
+						}
+							for(var y = 0; y < new_cloud.length; y++){
+								var split_new_cloud = new_cloud[y].split("`|`|||`");
+								var fontSize = split_new_cloud[1] * 5;
+								if (fontSize > 50){
+									fontSize = 50;
+								}
+								document.getElementById('pub_wordclouds').lastChild.innerHTML += "<p style=font-size:" + fontSize + "px;position:relative;" + "left:" + (Math.random() * 150) + "px;top:" + (Math.random() * 150) + "px;>" + split_new_cloud[0] + "</p>";
+							}
+								
+							}
+					}
+					xhttp.open('GET','sortbylatest.php?q=', true);
+					xhttp.send();
+				}
+
+				function sortByMostPopular()
+				{
+					document.getElementById("pub_wordclouds").innerHTML= "";
+					var xhttp;
+					xhttp = new XMLHttpRequest();
+
+					xhttp.onreadystatechange = function()
+					{
+						if (xhttp.readyState == 4 && xhttp.status == 200)
+						{
+						document.getElementById('pub_wordclouds').innerHTML += "<div name = word_cloud_div id = word_cloud_div>";
+						for(var x = 0; x < xhttp.responseText.length; x++){
+							var new_cloud = xhttp.responseText.split("|`````|`|");
+						}
+							for(var y = 0; y < new_cloud.length; y++){
+								var split_new_cloud = new_cloud[y].split("`|`|||`");
+								var fontSize = split_new_cloud[1] * 5;
+								if (fontSize > 32){
+									fontSize = 32;
+								}
+								document.getElementById('pub_wordclouds').lastChild.innerHTML += "<p style=font-size:" + fontSize + "px;position:relative;" + "left:" + (Math.random() * 150) + "px;top:" + (Math.random() * 150) + "px;>" + split_new_cloud[0] + "</p>";
+							}
+								
+							}
+					}
+					xhttp.open('GET','sortbymostpopular.php?q=', true);
+					xhttp.send();
+				}
+				
+		</script>
+			<h2>Welcome</h2>
+			<div id = "pub_wordclouds"></div>
+			
+			<input type = "text" id = "bar" name = "search" placeholder = "Search"> 			    			<button onclick= "createWordCloud()">Create</button>
+						<button onclick= "uploadWordCloud()">Upload</button>
+			<button onclick= "sortByLatest()">Sort By Latest</button>
+			<button onclick= "sortByMostPopular()">Sort By Most Popular</button>
+			<button onclick = "updateWordCloud()">Get Latest Wordclouds</button>
+			<h4 id = "preview">Current Word Cloud</h4>
+			<div id="test"></div>
+	
+
+</body>
+</html>
